@@ -71,11 +71,11 @@ CREATE INDEX idx_users_email ON users(email);
 
 -- Categories
 INSERT INTO categories (name, description, created_at) VALUES
-  ('XC', 'Cross-Country bikes for speed and efficiency', '2025-12-15 08:00:00'),
+  ('XC', 'Cross-Country bikes for speed and efficiency', '2025-12-16 08:00:00'),
   ('Trail', 'Versatile all-purpose trail bikes', '2025-12-15 08:15:00'),
-  ('Downcountry', 'Lightweight descending machines', '2025-12-15 08:30:00'),
-  ('Enduro', 'Long-travel aggressive trail bikes', '2025-12-15 08:45:00'),
-  ('Downhill', 'Gravity-focused extreme downhill bikes', '2025-12-15 09:00:00');
+  ('Downcountry', 'Lightweight descending machines', '2025-12-14 08:30:00'),
+  ('Enduro', 'Long-travel aggressive trail bikes', '2025-12-14 08:45:00'),
+  ('Downhill', 'Gravity-focused extreme downhill bikes', '2025-12-10 09:00:00');
 
 -- Products (Bikes)
 INSERT INTO products (category_id, name, description, price, stock_quantity, image_url, created_at, updated_at) VALUES

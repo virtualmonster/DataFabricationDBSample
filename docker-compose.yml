@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  sendit-demo-db:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sendit_cycles_demo_db
+    environment:
+      POSTGRES_DB: sendit_cycles_demo
+      POSTGRES_USER: sendit_demo
+      POSTGRES_PASSWORD: DemoPass123!
+      POSTGRES_INITDB_ARGS: "-c max_connections=200"
+    ports:
+      - "5432:5432"
+    volumes:
+      - sendit_demo_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sendit_demo -d sendit_cycles_demo"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - sendit_network
+
+volumes:
+  sendit_demo_data:
+    driver: local
+
+networks:
+  sendit_network:
+    driver: bridge
